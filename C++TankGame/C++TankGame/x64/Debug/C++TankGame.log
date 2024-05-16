@@ -1,0 +1,5 @@
+﻿  GameObject.cpp
+C:\Users\s213812\Documents\GitHub\C-TankGame\C++TankGame\C++TankGame\Vector3.h(144,31): error C4596: 'Cross': illegal qualified name in member declaration
+C:\Users\s213812\Documents\GitHub\C-TankGame\C++TankGame\C++TankGame\GameObject.h(9,15): error C2039: 'LocalRotation': is not a member of 'MathClasses'
+C:\Users\s213812\Documents\GitHub\C-TankGame\C++TankGame\C++TankGame\Vector3.h(4,11): message : see declaration of 'MathClasses'
+C:\Users\s213812\Documents\GitHub\C-TankGame\C++TankGame\C++TankGame\GameObject.h(9,28): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
