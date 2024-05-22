@@ -135,7 +135,9 @@
     <ClInclude Include="Matrix3.h" />
     <ClInclude Include="Matrix4.h" />
     <ClInclude Include="SpriteObject.h" />
+    <ClInclude Include="TankBullet.h" />
     <ClInclude Include="TankPlayer.h" />
+    <ClInclude Include="TankTurret.h" />
     <ClInclude Include="Utils.h" />
     <ClInclude Include="Vector3.h" />
     <ClInclude Include="Vector4.h" />
@@ -144,7 +146,9 @@
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="SpriteObject.cpp" />
+    <ClCompile Include="TankBullet.cpp" />
     <ClCompile Include="TankPlayer.cpp" />
+    <ClCompile Include="TankTurret.cpp" />
     <ClCompile Include="Utils.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

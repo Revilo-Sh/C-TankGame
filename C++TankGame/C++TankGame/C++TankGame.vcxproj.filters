@@ -45,6 +45,12 @@
     <ClInclude Include="TankPlayer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="TankTurret.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="TankBullet.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GameObject.cpp">
@@ -60,6 +66,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="TankPlayer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="TankTurret.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="TankBullet.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

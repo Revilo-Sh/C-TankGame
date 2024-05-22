@@ -16,19 +16,19 @@ void TankPlayer::OnUpdate(float deltaTime)
 	//Checking For W,S inputs
 	if (IsKeyDown(KeyboardKey::KEY_W)) {
 		yMove += Movespeed;
-		std::cout << "Up" << std :: endl;
+		std::cout << "INPUT KEY [W] Move Fowards" << std :: endl;
 	}
 	if (IsKeyDown(KeyboardKey::KEY_S)) {
 		yMove -= Movespeed;
-		std::cout << "Down" << std::endl;
+		std::cout << "INPUT KEY [S] Move BackWards" << std::endl;
 	}
 	if (IsKeyDown(KeyboardKey::KEY_A)) {
 		xMove -= RotateSpeed;
-		std::cout << "Turn L" << std::endl;
+		std::cout << "TURN INPUT KEY [A] Turing Tank Left <- " << std::endl;
 	}
 	if (IsKeyDown(KeyboardKey::KEY_D)) {
 		xMove += RotateSpeed;
-		std::cout << "Turn R" << std::endl;
+		std::cout << "TURN INPUT KEY [D] Turing Tank Right ->" << std::endl;
 	}
 
 	MathClasses::Vector3 finalMove = GetForwards() * (yMove * deltaTime);
