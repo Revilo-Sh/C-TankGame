@@ -9,9 +9,10 @@ class SpriteObject : public GameObject
 {
 public:
 	raylib::Texture2D* sprite;
-	Vector3 Origin;
-	Color Tint;
+	MathClasses::Vector3 Origin;
+	MathClasses::Colour Tint;
 	
+
 	SpriteObject();
 
 protected:

@@ -163,16 +163,16 @@ namespace MathClasses
             return x * other.x + y * other.y + z * other.z;
         }
 
-        Vector3 Vector3::Cross(const Vector3& other)
-        {
-            Vector3 crossdata;
-            crossdata.x = (y * other.z) - (z * other.y);
-            crossdata.y = (z * other.x) - (x * other.z);
-            crossdata.z = (x * other.y) - (y * other.x);
+        //Vector3 Vector3::Cross(const Vector3& other)
+        //{
+        //    Vector3 crossdata;
+        //    crossdata.x = (y * other.z) - (z * other.y);
+        //    crossdata.y = (z * other.x) - (x * other.z);
+        //    crossdata.z = (x * other.y) - (y * other.x);
 
-            return crossdata;
+        //    return crossdata;
 
-        }
+        //}
 	};
 
 }

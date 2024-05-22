@@ -98,10 +98,10 @@ void GameObject::SetLocalScale(float newX, float NewY)
 	LocalScale = MathClasses::Vector3(newX, NewY, LocalScale.z);
 }
 
-float GameObject::SetLocalRotation(float newRotation)
-{
-	LocalRotation = newRotation;
-}
+//float GameObject::SetLocalRotation(float newRotation)
+//{
+//	LocalRotation = newRotation;
+//}
 
 ////////////////////////////////
 
