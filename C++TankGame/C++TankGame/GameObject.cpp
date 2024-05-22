@@ -98,10 +98,11 @@ void GameObject::SetLocalScale(float newX, float NewY)
 	LocalScale = MathClasses::Vector3(newX, NewY, LocalScale.z);
 }
 
-//float GameObject::SetLocalRotation(float newRotation)
-//{
-//	LocalRotation = newRotation;
-//}
+float GameObject::SetLocalRotation(float newRotation)
+{
+	LocalRotation = newRotation;
+	return LocalRotation;
+}
 
 ////////////////////////////////
 
@@ -125,7 +126,7 @@ MathClasses::Vector3 GameObject::GetWorldPosition() const
 float GameObject::GetWorldRotation() const
 {
 	MathClasses::Vector3 fwd = GetForwards();
-	return atan2(fwd.x, fwd.y);
+	return atan2(fwd.y, fwd.x);
 }
 
 MathClasses::Vector3 GameObject::Getworldscale() const

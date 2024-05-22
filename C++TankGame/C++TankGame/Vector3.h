@@ -83,9 +83,12 @@ namespace MathClasses
         }
 
         Vector3 operator += (const Vector3 num){
-            Vector3 sum;
-            num + num = sum;
-            return sum;
+            x = this->x + num.x;
+            y = this->y + num.y;
+            z = this->z + num.z;
+
+            return *this;
+
         }
 
         Vector3 operator *= (const float rhs) {

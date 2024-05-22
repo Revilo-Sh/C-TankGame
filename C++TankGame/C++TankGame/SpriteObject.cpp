@@ -10,15 +10,16 @@ SpriteObject::SpriteObject()
 
 void SpriteObject::OnDraw()
 {
+	float rot = GetWorldRotation() * (180.0f / 3.14159265358979323846f);
 	MathClasses::Vector3 pos = GetWorldPosition();
-	float rot = GetWorldRotation();
 	MathClasses::Vector3 scl = Getworldscale();
+
+	
 	sprite->Draw(
 		raylib::Rectangle(0, 0, (float)sprite->width, (float)sprite->height),
 		raylib::Rectangle(pos.x, pos.y, sprite->width * scl.x, sprite->height * scl.y),
 		raylib::Vector2(sprite->width * Origin.x * scl.x, sprite->height * Origin.y * scl.y),
 		rot,
 		raylib::Color(Tint.colour));
-
 }
 
