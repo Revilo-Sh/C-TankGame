@@ -1,2 +1,4 @@
-﻿  TankTurret.cpp
+﻿  Main.cpp
+C:\Users\s213812\Documents\GitHub\C-TankGame\C++TankGame\C++TankGame\Main.cpp(35,59): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\s213812\Documents\GitHub\C-TankGame\C++TankGame\C++TankGame\Main.cpp(35,41): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
   C++TankGame.vcxproj -> C:\Users\s213812\Documents\GitHub\C-TankGame\C++TankGame\x64\Debug\C++TankGame.exe

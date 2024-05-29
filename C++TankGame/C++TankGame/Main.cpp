@@ -4,6 +4,7 @@
 #include "TankPlayer.h" 
 #include "TankTurret.h"
 #include "TankBullet.h"
+#include "Box.h"
 
 
 int main()
@@ -44,11 +45,18 @@ int main()
     Playerturret.SetLocalPosition(0,0);
     Playerturret.Setparent(&Player);
     Playerturret.Origin = MathClasses::Vector3(0, 0.5, 0);
-
+    
+    
     ///////////////////////////////
-    // Settng Up The Tank Bullet
+    // World Render
     ///////////////////////////////
 
+    raylib::Texture2D BoxSprite("res/crateWood.png");
+    Box WorldBox;
+    WorldBox.sprite = &BoxSprite;
+    WorldBox.SetLocalPosition(150,150);
+
+    raylib::Rectangle GrayCollider(WorldBox.GetLocalPosition().x-WorldBox.Origin.x -29,WorldBox.GetLocalPosition().y - WorldBox.Origin.y -29, 60, 60);
 
 
     ///////////////////////////////
@@ -60,12 +68,26 @@ int main()
         Playerturret.update(deltaTime);
         Player.update(deltaTime);
         
+        for (int i = 0; i < 100; i++) {
+            if (Playerturret.bullet[i] != nullptr) {
+                raylib::Rectangle BulletCollider(Playerturret.bullet[i]->GetLocalPosition().x, Playerturret.bullet[i]->GetLocalPosition().y, 10, 10);
+                if (CheckCollisionRecs(BulletCollider,GrayCollider)) {
+                    delete Playerturret.bullet[i]->sprite;
+                    Playerturret.bullet[i]->sprite = nullptr;
+
+                    delete Playerturret.bullet[i];
+                    Playerturret.bullet[i] = nullptr;
+                }
+            }
+        }
 
         BeginDrawing();
         {
-            window.ClearBackground(RAYWHITE);
+            window.ClearBackground(DARKGREEN);
             Player.Draw();
             Playerturret.Draw();
+            WorldBox.Draw();
+            //GrayCollider.Draw(GRAY);
         }
         EndDrawing();
     }

@@ -1,27 +1,44 @@
 #include "TankTurret.h"
 #include <iostream>
+bool CanShoot = true;
 
 void TankTurret::OnUpdate(float deltaTime)
 {
 	const float RotateSpeed = 5.0f;
-	float xMove = 0.0f;
 
+
+	float xMove = 0.0f;
 	float FinelRoate;
 
-	if (IsKeyDown(KeyboardKey::KEY_SPACE)) {
-		std::cout << "Shoot" << std::endl;
+	ShootTime += 0.1,deltaTime;
 
-		for (int i = 0; i < 100; i++) {
-			if (bullet[i] == nullptr) {
-				bullet[i] = new TankBullet;
-				bullet[i]->sprite = new raylib::Texture2D("res/bulletDark1_outline.png");
-				bullet[i]->SetLocalRotation(GetWorldRotation());
-				bullet[i]->SetLocalPosition(GetWorldPosition() + (GetForwards() * 72));
-				std::cout << "Spawn" << std::endl;
-				break;
+	if (IsKeyDown(KeyboardKey::KEY_SPACE)) {
+		if (CanShoot == true) {
+			std::cout << "Shoot" << std::endl;
+			for (int i = 0; i < 100; i++) {
+				if (bullet[i] == nullptr) {
+					bullet[i] = new TankBullet;
+					bullet[i]->sprite = new raylib::Texture2D("res/bulletDark1_outline.png");
+					bullet[i]->SetLocalRotation(GetWorldRotation());
+					bullet[i]->SetLocalPosition(GetWorldPosition() + (GetForwards() * 72));
+					std::cout << "Spawn" << std::endl;
+					break;
+
+				}
 			}
+			ShootTime = 0.0f;
+			CanShoot = false;
 		}
 	}
+
+	if (ShootTime >= 5.0f) {
+		CanShoot = true;
+	}
+
+	if (ShootTime >= 50.0f) {
+		ShootTime = 10.0f;
+	}
+
 
 	if (IsKeyDown(KeyboardKey::KEY_E)) {
 		std::cout << "INPUT [E] Turret Move Right ->" << std::endl;
@@ -35,7 +52,6 @@ void TankTurret::OnUpdate(float deltaTime)
 
 	FinelRoate = (xMove * deltaTime);
 	Rotate(FinelRoate);
-
 
 
 	for (int i = 0; i < 100; i++) {
@@ -65,6 +81,8 @@ void TankTurret::OnUpdate(float deltaTime)
 			}
 		}
 	}
+
+
 }
 
 void TankTurret::OnDraw()

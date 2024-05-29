@@ -7,8 +7,7 @@ public:
 	float maxtimer = 10.0f;
 
 protected:
-	const float Speed = 250.0f;
+	const float Speed = 750.0f;
 	void OnUpdate(float deltaTime) override;
-
 };
 

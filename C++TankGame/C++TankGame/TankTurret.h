@@ -5,11 +5,14 @@
 
 class TankTurret : public SpriteObject
 {
+public:
+	TankBullet* bullet[100];
 protected:
-	TankBullet *bullet[100];
+	
 
 	void OnUpdate(float deltaTime) override;
 	void OnDraw() override;
 
+	float ShootTime = 1.0f;
 };
 
