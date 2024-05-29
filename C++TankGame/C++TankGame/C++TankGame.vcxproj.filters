@@ -54,6 +54,9 @@
     <ClInclude Include="Box.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="AABB.h">
+      <Filter>Resource Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GameObject.cpp">
