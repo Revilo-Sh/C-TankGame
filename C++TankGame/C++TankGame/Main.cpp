@@ -7,8 +7,13 @@
 #include "Box.h"
 
 
+
 int main()
 {
+    // Setting Up All the Roots
+    GameObject root;
+    GameObject::SetRoot(&root);
+    
     ///////////////////////////////
     // Basic Setup
     ///////////////////////////////
@@ -26,14 +31,12 @@ int main()
 
     raylib::Texture2D tankSprite("res/tankBody_blue_outline.png");
 
- 
-
-
-
     TankPlayer Player;
     Player.sprite = &tankSprite;
     Player.SetLocalPosition(screenWidth / 2, screenHeight / 2);
-    
+    Player.Setparent(&root);
+
+
     ///////////////////////////////
     // Settng Up The Tank Turret
     ///////////////////////////////
@@ -45,7 +48,7 @@ int main()
     Playerturret.SetLocalPosition(0,0);
     Playerturret.Setparent(&Player);
     Playerturret.Origin = MathClasses::Vector3(0, 0.5, 0);
-    
+  
     
     ///////////////////////////////
     // World Render
@@ -55,9 +58,11 @@ int main()
     Box WorldBox;
     WorldBox.sprite = &BoxSprite;
     WorldBox.SetLocalPosition(150,150);
+    WorldBox.Setparent(&root);
+    WorldBox.Load();
 
     raylib::Rectangle GrayCollider(WorldBox.GetLocalPosition().x-WorldBox.Origin.x -29,WorldBox.GetLocalPosition().y - WorldBox.Origin.y -29, 60, 60);
-
+  
 
     ///////////////////////////////
     // Settng Up Timing Data
@@ -67,19 +72,28 @@ int main()
         float deltaTime = window.GetFrameTime();
         Playerturret.update(deltaTime);
         Player.update(deltaTime);
-        
+
+        /////////////////////////////////////////////
+        // Checking To See If the Bullet Htis The box
+        /////////////////////////////////////////////
         for (int i = 0; i < 100; i++) {
             if (Playerturret.bullet[i] != nullptr) {
-                raylib::Rectangle BulletCollider(Playerturret.bullet[i]->GetLocalPosition().x, Playerturret.bullet[i]->GetLocalPosition().y, 10, 10);
-                if (CheckCollisionRecs(BulletCollider,GrayCollider)) {
+                AABB* col = root.GetColliderofchiled(Playerturret.bullet[i]->BoxCollider);
+
+                if (col != nullptr && col != Playerturret.bullet[i]->BoxCollider || col != Player.BoxCollider || col != Playerturret.BoxCollider) {
+
                     delete Playerturret.bullet[i]->sprite;
                     Playerturret.bullet[i]->sprite = nullptr;
-
                     delete Playerturret.bullet[i];
                     Playerturret.bullet[i] = nullptr;
                 }
+                
             }
         }
+
+        //////////////////////////////////////
+        // Updating Each Darw For the Textures
+        //////////////////////////////////////
 
         BeginDrawing();
         {

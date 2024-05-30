@@ -2,7 +2,6 @@
 #include "TankPlayer.h"
 
 
-
 void TankPlayer::OnUpdate(float deltaTime)
 {
 	const float Movespeed = 150.0f;
@@ -36,4 +35,5 @@ void TankPlayer::OnUpdate(float deltaTime)
 
 	finalrotate = (xMove * deltaTime);
 	Rotate(finalrotate);
+
 }

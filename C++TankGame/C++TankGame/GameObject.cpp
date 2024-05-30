@@ -1,6 +1,16 @@
 #include "GameObject.h"
 #include <algorithm>
 
+static GameObject* root;
+
+void GameObject::SetRoot(GameObject* go){
+	root = go;
+}
+
+GameObject* GameObject::Getroot(){
+	return root;
+}
+
 GameObject::GameObject()
 {
 	Parent = nullptr;
@@ -191,6 +201,26 @@ void GameObject::Scale(float x, float y)
 void GameObject::Scale(MathClasses::Vector3 scalar)
 {
 	LocalScale *= scalar;
+}
+
+AABB* GameObject::GetColliderofchiled(AABB* Collider) {
+	std::vector<GameObject*> copy = Children;
+
+	for (auto obj : copy) {
+		if (obj->BoxCollider != nullptr) {
+			if (obj->BoxCollider->Overlaps(*Collider)) {
+				return obj->BoxCollider;
+			}
+		}
+		
+		auto result = obj->GetColliderofchiled(Collider);
+		if (result != nullptr) {
+			return result;
+		}
+		
+	}
+
+	return nullptr;
 }
 
 

@@ -21,6 +21,7 @@ void TankTurret::OnUpdate(float deltaTime)
 					bullet[i]->sprite = new raylib::Texture2D("res/bulletDark1_outline.png");
 					bullet[i]->SetLocalRotation(GetWorldRotation());
 					bullet[i]->SetLocalPosition(GetWorldPosition() + (GetForwards() * 72));
+					bullet[i]->BoxCollider = new AABB;
 					std::cout << "Spawn" << std::endl;
 					break;
 

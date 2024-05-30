@@ -2,6 +2,7 @@
 #include <vector>
 #include "Vector3.h"
 #include "Matrix3.h"
+#include "AABB.h"
 
 
 class GameObject
@@ -18,6 +19,15 @@ protected:
 	std::vector<GameObject*> Children;
 
 public:
+	// Setting the Public Root For the Collider
+	static void SetRoot(GameObject* go);
+	static GameObject* Getroot();
+	AABB* GetColliderofchiled(AABB* Collider);
+	AABB* BoxCollider;
+
+
+	// Setting the All the Gameobject Valuleblases
+
 	GameObject();
 	void update(float deltaTime);
 	void Draw();
@@ -76,6 +86,7 @@ public:
 	void Scale(float x, float y);
 	void Scale(MathClasses::Vector3 scalar);
 
+	
 
 
 

@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include "Utils.h"
 
 namespace MathClasses
 {
@@ -176,6 +177,18 @@ namespace MathClasses
         //    return crossdata;
 
         //}
+
+        static Vector3 min(const MathClasses::Vector3& a, const MathClasses::Vector3& b) {
+            return { minf(a.x,b.x), minf(a.y, b.y), depthf(a.z, b.z) };
+        }
+
+        static Vector3 max(const MathClasses::Vector3& a, const MathClasses::Vector3& b) {
+            return { maxf(a.x,b.x), maxf(a.y, b.y), depthf(a.z, a.z) };
+        }
+
+        static Vector3 clamp(const MathClasses::Vector3& t, const MathClasses::Vector3& a, const MathClasses::Vector3& b) {
+            return max(a, min(b, t));
+        }
 	};
 
 }
