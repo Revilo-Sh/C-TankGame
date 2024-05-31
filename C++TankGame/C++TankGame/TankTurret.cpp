@@ -32,7 +32,7 @@ void TankTurret::OnUpdate(float deltaTime)
 		}
 	}
 
-	if (ShootTime >= 5.0f) {
+	if (ShootTime >= 1.0f) {
 		CanShoot = true;
 	}
 
@@ -67,13 +67,13 @@ void TankTurret::OnUpdate(float deltaTime)
 			}
 
 
-			else if (bullet[i]->GetWorldPosition().x <= -10 || bullet[i]->GetWorldPosition().y <= -10 || bullet[i]->GetWorldPosition().x >= GetScreenWidth() + 10 || bullet[i]->GetWorldPosition().y >= GetScreenHeight() + 10) {
+			/*else if (bullet[i]->GetWorldPosition().x <= -10 || bullet[i]->GetWorldPosition().y <= -10 || bullet[i]->GetWorldPosition().x >= GetScreenWidth() + 10 || bullet[i]->GetWorldPosition().y >= GetScreenHeight() + 10) {
 				delete bullet[i]->sprite;
 				bullet[i]->sprite = nullptr;
 
 				delete bullet[i];
 				bullet[i] = nullptr;
-			}
+			}*/
 				
 
 		

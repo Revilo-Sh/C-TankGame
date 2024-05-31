@@ -143,6 +143,7 @@
     <ClInclude Include="Utils.h" />
     <ClInclude Include="Vector3.h" />
     <ClInclude Include="Vector4.h" />
+    <ClInclude Include="WorldBorder.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Box.cpp" />
@@ -153,6 +154,7 @@
     <ClCompile Include="TankPlayer.cpp" />
     <ClCompile Include="TankTurret.cpp" />
     <ClCompile Include="Utils.cpp" />
+    <ClCompile Include="WorldBorder.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

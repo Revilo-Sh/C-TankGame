@@ -5,6 +5,7 @@
 #include "TankTurret.h"
 #include "TankBullet.h"
 #include "Box.h"
+#include "WorldBorder.h"
 
 
 
@@ -57,12 +58,23 @@ int main()
     raylib::Texture2D BoxSprite("res/crateWood.png");
     Box WorldBox;
     WorldBox.sprite = &BoxSprite;
+   
     WorldBox.SetLocalPosition(150,150);
     WorldBox.Setparent(&root);
     WorldBox.Load();
 
     raylib::Rectangle GrayCollider(WorldBox.GetLocalPosition().x-WorldBox.Origin.x -29,WorldBox.GetLocalPosition().y - WorldBox.Origin.y -29, 60, 60);
   
+    
+    // World Render Setting Up The World Border
+    
+    WorldBorder worldborder;
+    worldborder.SetLocalPosition(screenWidth / 2, screenHeight / 2);
+    worldborder.Setparent(&root);
+    worldborder.Load();
+
+
+
 
     ///////////////////////////////
     // Settng Up Timing Data
@@ -74,22 +86,24 @@ int main()
         Player.update(deltaTime);
 
         /////////////////////////////////////////////
-        // Checking To See If the Bullet Htis The box
+        // Checking To See If the Bullet Htis The box And to See if bullet go off screen
         /////////////////////////////////////////////
         for (int i = 0; i < 100; i++) {
             if (Playerturret.bullet[i] != nullptr) {
                 AABB* col = root.GetColliderofchiled(Playerturret.bullet[i]->BoxCollider);
 
-                if (col != nullptr && col != Playerturret.bullet[i]->BoxCollider || col != Player.BoxCollider || col != Playerturret.BoxCollider) {
-
-                    delete Playerturret.bullet[i]->sprite;
-                    Playerturret.bullet[i]->sprite = nullptr;
-                    delete Playerturret.bullet[i];
-                    Playerturret.bullet[i] = nullptr;
+                if (col != worldborder.BoxCollider) {
+                    if (col != nullptr && col != Playerturret.bullet[i]->BoxCollider || col != Player.BoxCollider || col != Playerturret.BoxCollider || col != worldborder.BoxCollider) {
+                        delete Playerturret.bullet[i]->sprite;
+                        Playerturret.bullet[i]->sprite = nullptr;
+                        delete Playerturret.bullet[i];
+                        Playerturret.bullet[i] = nullptr;
+                        std :: cout << "[BULLET] DERENDER" << std::endl;
+                    }
                 }
-                
             }
         }
+
 
         //////////////////////////////////////
         // Updating Each Darw For the Textures

@@ -57,6 +57,9 @@
     <ClInclude Include="AABB.h">
       <Filter>Resource Files</Filter>
     </ClInclude>
+    <ClInclude Include="WorldBorder.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GameObject.cpp">
@@ -81,6 +84,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Box.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="WorldBorder.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
