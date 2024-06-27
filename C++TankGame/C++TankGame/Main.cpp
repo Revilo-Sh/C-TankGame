@@ -69,7 +69,7 @@ int main()
     // World Render Setting Up The World Border
     
     WorldBorder worldborder;
-    worldborder.SetLocalPosition(screenWidth / 2, screenHeight / 2);
+    worldborder.SetLocalPosition(screenWidth, screenHeight);
     worldborder.Setparent(&root);
     worldborder.Load();
 

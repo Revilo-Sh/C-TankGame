@@ -2,5 +2,5 @@
 
 void WorldBorder::Load()
 {
-	BoxCollider = new AABB(MathClasses::Vector3(-800, -800, 0) + GetWorldPosition(), MathClasses::Vector3(400, 400, 0) + GetWorldPosition());
+	BoxCollider = new AABB(MathClasses::Vector3(0, 0, 1), MathClasses::Vector3(800, 450, 1));
 }

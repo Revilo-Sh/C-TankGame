@@ -1,3 +1,17 @@
-﻿  TankTurret.cpp
+﻿  Box.cpp
+  GameObject.cpp
+C:\Users\s213812\Documents\GitHub\C-TankGame\C++TankGame\C++TankGame\GameObject.cpp(139,14): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+  Main.cpp
+C:\Users\s213812\Documents\GitHub\C-TankGame\C++TankGame\C++TankGame\Main.cpp(37,59): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\s213812\Documents\GitHub\C-TankGame\C++TankGame\C++TankGame\Main.cpp(37,41): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\s213812\Documents\GitHub\C-TankGame\C++TankGame\C++TankGame\Main.cpp(72,47): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\s213812\Documents\GitHub\C-TankGame\C++TankGame\C++TankGame\Main.cpp(72,34): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  SpriteObject.cpp
+  TankBullet.cpp
+  TankPlayer.cpp
+  TankTurret.cpp
 C:\Users\s213812\Documents\GitHub\C-TankGame\C++TankGame\C++TankGame\TankTurret.cpp(13,18): warning C4305: '+=': truncation from 'double' to 'float'
+  Utils.cpp
+  WorldBorder.cpp
+  Generating Code...
   C++TankGame.vcxproj -> C:\Users\s213812\Documents\GitHub\C-TankGame\C++TankGame\x64\Debug\C++TankGame.exe
